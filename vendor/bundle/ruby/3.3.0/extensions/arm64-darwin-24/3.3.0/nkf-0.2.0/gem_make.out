@@ -1,0 +1,18 @@
+current directory: /Users/aliraza/Documents/MoodApp/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/aliraza/Documents/MoodApp/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20250124-1819-nrhw1w sitelibdir\=./.gem.20250124-1819-nrhw1w clean
+
+current directory: /Users/aliraza/Documents/MoodApp/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20250124-1819-nrhw1w sitelibdir\=./.gem.20250124-1819-nrhw1w
+compiling nkf.c
+linking shared-object nkf.bundle
+
+current directory: /Users/aliraza/Documents/MoodApp/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20250124-1819-nrhw1w sitelibdir\=./.gem.20250124-1819-nrhw1w install
+/usr/bin/install -c -m 0755 nkf.bundle ./.gem.20250124-1819-nrhw1w
+
+current directory: /Users/aliraza/Documents/MoodApp/vendor/bundle/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20250124-1819-nrhw1w sitelibdir\=./.gem.20250124-1819-nrhw1w clean
