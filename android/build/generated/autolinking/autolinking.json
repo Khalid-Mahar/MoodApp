@@ -1,26 +1,26 @@
 {
-  "root": "/Users/aliraza/Documents/MoodApp",
-  "reactNativePath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native",
+  "root": "/Users/aliraza/Documents/GitHub/MoodApp",
+  "reactNativePath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native",
   "reactNativeVersion": "0.76",
   "dependencies": {
     "@react-native-async-storage/async-storage": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-async-storage/async-storage",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-async-storage/async-storage",
       "name": "@react-native-async-storage/async-storage",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-async-storage/async-storage/RNCAsyncStorage.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-async-storage/async-storage/RNCAsyncStorage.podspec",
           "version": "1.24.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-async-storage/async-storage/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-async-storage/async-storage/android",
           "packageImportPath": "import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;",
           "packageInstance": "new AsyncStoragePackage()",
           "buildTypes": [],
           "libraryName": "rnasyncstorage",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -29,23 +29,23 @@
       }
     },
     "@react-native-community/datetimepicker": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-community/datetimepicker",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-community/datetimepicker",
       "name": "@react-native-community/datetimepicker",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec",
           "version": "8.2.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-community/datetimepicker/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-community/datetimepicker/android",
           "packageImportPath": "import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;",
           "packageInstance": "new RNDateTimePickerPackage()",
           "buildTypes": [],
           "libraryName": "RNDateTimePickerCGen",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-community/datetimepicker/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-community/datetimepicker/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -54,11 +54,11 @@
       }
     },
     "@react-native-firebase/app": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/app",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/app",
       "name": "@react-native-firebase/app",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/app/RNFBApp.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/app/RNFBApp.podspec",
           "version": "21.7.1",
           "configurations": [],
           "scriptPhases": [
@@ -73,12 +73,12 @@
           ]
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/app/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/app/android",
           "packageImportPath": "import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;",
           "packageInstance": "new ReactNativeFirebaseAppPackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/app/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/app/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -87,22 +87,22 @@
       }
     },
     "@react-native-firebase/auth": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/auth",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/auth",
       "name": "@react-native-firebase/auth",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/auth/RNFBAuth.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/auth/RNFBAuth.podspec",
           "version": "21.7.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/auth/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/auth/android",
           "packageImportPath": "import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;",
           "packageInstance": "new ReactNativeFirebaseAuthPackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/auth/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/auth/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -111,22 +111,22 @@
       }
     },
     "@react-native-firebase/firestore": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/firestore",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/firestore",
       "name": "@react-native-firebase/firestore",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/firestore/RNFBFirestore.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/firestore/RNFBFirestore.podspec",
           "version": "21.7.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/firestore/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/firestore/android",
           "packageImportPath": "import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;",
           "packageInstance": "new ReactNativeFirebaseFirestorePackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-firebase/firestore/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-firebase/firestore/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -135,17 +135,17 @@
       }
     },
     "@react-native-google-signin/google-signin": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-google-signin/google-signin",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-google-signin/google-signin",
       "name": "@react-native-google-signin/google-signin",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-google-signin/google-signin/RNGoogleSignin.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-google-signin/google-signin/RNGoogleSignin.podspec",
           "version": "13.1.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-google-signin/google-signin/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-google-signin/google-signin/android",
           "packageImportPath": "import com.reactnativegooglesignin.RNGoogleSigninPackage;",
           "packageInstance": "new RNGoogleSigninPackage()",
           "buildTypes": [],
@@ -153,7 +153,7 @@
           "componentDescriptors": [
             "RNGoogleSigninButtonComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -162,17 +162,17 @@
       }
     },
     "react-native-gesture-handler": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-gesture-handler",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-gesture-handler",
       "name": "react-native-gesture-handler",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
           "version": "2.22.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-gesture-handler/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-gesture-handler/android",
           "packageImportPath": "import com.swmansion.gesturehandler.RNGestureHandlerPackage;",
           "packageInstance": "new RNGestureHandlerPackage()",
           "buildTypes": [],
@@ -181,7 +181,7 @@
             "RNGestureHandlerButtonComponentDescriptor",
             "RNGestureHandlerRootViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -190,23 +190,23 @@
       }
     },
     "react-native-image-picker": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-image-picker",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-image-picker",
       "name": "react-native-image-picker",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-image-picker/react-native-image-picker.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-image-picker/react-native-image-picker.podspec",
           "version": "7.2.3",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-image-picker/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-image-picker/android",
           "packageImportPath": "import com.imagepicker.ImagePickerPackage;",
           "packageInstance": "new ImagePickerPackage()",
           "buildTypes": [],
           "libraryName": "RNImagePickerSpec",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-image-picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-image-picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -215,22 +215,22 @@
       }
     },
     "react-native-linear-gradient": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-linear-gradient",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-linear-gradient",
       "name": "react-native-linear-gradient",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-linear-gradient/BVLinearGradient.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-linear-gradient/BVLinearGradient.podspec",
           "version": "2.8.3",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-linear-gradient/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-linear-gradient/android",
           "packageImportPath": "import com.BV.LinearGradient.LinearGradientPackage;",
           "packageInstance": "new LinearGradientPackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-linear-gradient/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-linear-gradient/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -239,23 +239,23 @@
       }
     },
     "react-native-reanimated": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-reanimated",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-reanimated",
       "name": "react-native-reanimated",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-reanimated/RNReanimated.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-reanimated/RNReanimated.podspec",
           "version": "3.16.7",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-reanimated/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-reanimated/android",
           "packageImportPath": "import com.swmansion.reanimated.ReanimatedPackage;",
           "packageInstance": "new ReanimatedPackage()",
           "buildTypes": [],
           "libraryName": "rnreanimated",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-reanimated/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -264,17 +264,17 @@
       }
     },
     "react-native-safe-area-context": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-safe-area-context",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-safe-area-context",
       "name": "react-native-safe-area-context",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
           "version": "4.14.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-safe-area-context/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-safe-area-context/android",
           "packageImportPath": "import com.th3rdwave.safeareacontext.SafeAreaContextPackage;",
           "packageInstance": "new SafeAreaContextPackage()",
           "buildTypes": [],
@@ -283,7 +283,7 @@
             "RNCSafeAreaProviderComponentDescriptor",
             "RNCSafeAreaViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -292,17 +292,17 @@
       }
     },
     "react-native-screens": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-screens",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-screens",
       "name": "react-native-screens",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-screens/RNScreens.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-screens/RNScreens.podspec",
           "version": "3.35.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-screens/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-screens/android",
           "packageImportPath": "import com.swmansion.rnscreens.RNScreensPackage;",
           "packageInstance": "new RNScreensPackage()",
           "buildTypes": [],
@@ -318,7 +318,7 @@
             "RNSScreenComponentDescriptor",
             "RNSModalScreenComponentDescriptor"
           ],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -327,23 +327,23 @@
       }
     },
     "react-native-vector-icons": {
-      "root": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-vector-icons",
+      "root": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-vector-icons",
       "name": "react-native-vector-icons",
       "platforms": {
         "ios": {
-          "podspecPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-vector-icons/RNVectorIcons.podspec",
+          "podspecPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-vector-icons/RNVectorIcons.podspec",
           "version": "10.2.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-vector-icons/android",
+          "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-vector-icons/android",
           "packageImportPath": "import com.oblador.vectoricons.VectorIconsPackage;",
           "packageInstance": "new VectorIconsPackage()",
           "buildTypes": [],
           "libraryName": "RNVectorIconsSpec",
           "componentDescriptors": [],
-          "cmakeListsPath": "/Users/aliraza/Documents/MoodApp/node_modules/react-native-vector-icons/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/Users/aliraza/Documents/GitHub/MoodApp/node_modules/react-native-vector-icons/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -509,7 +509,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "/Users/aliraza/Documents/MoodApp"
+          "default": "/Users/aliraza/Documents/GitHub/MoodApp"
         },
         {
           "name": "--platform <string>",
@@ -796,7 +796,7 @@
   "assets": [],
   "project": {
     "ios": {
-      "sourceDir": "/Users/aliraza/Documents/MoodApp/ios",
+      "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/ios",
       "xcodeProject": {
         "name": "MoodApp.xcworkspace",
         "path": ".",
@@ -805,7 +805,7 @@
       "assets": []
     },
     "android": {
-      "sourceDir": "/Users/aliraza/Documents/MoodApp/android",
+      "sourceDir": "/Users/aliraza/Documents/GitHub/MoodApp/android",
       "appName": "app",
       "packageName": "com.moodapp",
       "applicationId": "com.moodapp",

@@ -1,0 +1,1 @@
+/Users/aliraza/Documents/GitHub/MoodApp/android/app/build/intermediates/cxx/Debug/x6r3e113/obj/arm64-v8a
