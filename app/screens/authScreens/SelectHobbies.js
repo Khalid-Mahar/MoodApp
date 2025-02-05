@@ -51,7 +51,7 @@ const hobbies = [
   'Home Desiginig',
   'Astronomy',
   'Wood working',
-  'DIY Projects',
+    'DIY Projects'
 ];
 
 const SelectHobbies = ({navigation, route}) => {

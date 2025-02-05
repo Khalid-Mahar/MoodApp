@@ -1,101 +1,79 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
+  Alert,
   FlatList,
-  Dimensions,
-  Platform,
-  SafeAreaView,
-  StatusBar,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
+import GradientBackground from "../../components/GradientBackground";
 import moment from "moment";
+import MoodCard from "../../components/MoodCard";
 import { useIsFocused } from "@react-navigation/native";
-import LinearGradient from "react-native-linear-gradient";
-
-const { width } = Dimensions.get("window");
-const CARD_PADDING = 15;
-const CARD_MARGIN = 10;
-
-const MoodCard = ({
-  mood,
-  time,
-  description,
-  emoji,
-  suggestion,
-  tagline,
-  onDelete,
-  onEdit,
-}) => (
-  <View style={styles.moodCard}>
-    <View style={styles.moodCardHeader}>
-      <View style={styles.moodInfo}>
-        <Text style={styles.emojiLarge}>{emoji?.split("5. ")[1]}</Text>
-        <View style={styles.moodTextContainer}>
-          <Text style={styles.moodTitle}>{mood}</Text>
-          <Text style={styles.moodTime}>{moment(time).format("h:mm A")}</Text>
-        </View>
-      </View>
-      <View style={styles.actionButtons}>
-        <TouchableOpacity
-          onPress={onEdit}
-          style={[styles.actionButton, styles.editButton]}
-        >
-          <Text style={styles.actionButtonText}>Edit</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onDelete}
-          style={[styles.actionButton, styles.deleteButton]}
-        >
-          <Text style={[styles.actionButtonText, styles.deleteButtonText]}>
-            Delete
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-    <Text style={styles.description}>{description}</Text>
-    <View style={styles.suggestionContainer}>
-      <Text style={styles.tagline}>{tagline}</Text>
-      <Text style={styles.suggestion}>{suggestion}</Text>
-    </View>
-  </View>
-);
-
-const DateSelector = ({ date, selected, onSelect }) => {
-  const isSelected = moment(date).isSame(selected, "day");
-
-  return (
-    <TouchableOpacity
-      style={[styles.dateButton, isSelected && styles.selectedDateButton]}
-      onPress={() => onSelect(date)}
-    >
-      <Text style={[styles.dateWeekday, isSelected && styles.selectedDateText]}>
-        {moment(date).format("ddd")}
-      </Text>
-      <Text style={[styles.dateNumber, isSelected && styles.selectedDateText]}>
-        {moment(date).format("D")}
-      </Text>
-      {date.emoji && (
-        <Text style={styles.dateEmoji}>{date.emoji?.split("5. ")[1]}</Text>
-      )}
-    </TouchableOpacity>
-  );
-};
+import MyIndicator from "../../components/MyIndicator";
+import ButtonComponent from "../../components/ButtonComponent";
 
 export default function HomeScreen({ navigation }) {
   const [userName, setUserName] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [moods, setMoods] = useState([]);
+  const [deleted, setDeleted] = useState(false);
   const [calendarData, setCalendarData] = useState([]);
   const [loading, setLoading] = useState(false);
   const isFocused = useIsFocused();
-  const dateListRef = useRef(null);
+  const calendarListRef = useRef(null);
 
-  // Firebase data fetching functions remain the same
+  // Generate calendar based on moods
+  const generateCalendar = () => {
+    const dates = [];
+    const startOfMonth = moment().startOf("month");
+    const endOfMonth = moment().endOf("month");
+
+    for (
+      let date = startOfMonth.clone();
+      date.isBefore(endOfMonth) || date.isSame(endOfMonth);
+      date.add(1, "day")
+    ) {
+      dates.push({
+        date: date.clone(),
+        emoji: null,
+      });
+    }
+
+    const updatedCalendarData = dates.map((day) => {
+      const matchingMoods = moods.filter(
+        (mood) =>
+          moment(mood.createdAt?.toDate()).format("DD-MM-YYYY") ===
+          moment(day.date).format("DD-MM-YYYY")
+      );
+      return {
+        ...day,
+        emoji: matchingMoods.length > 0 ? matchingMoods[0]?.emoji : null,
+      };
+    });
+
+    setCalendarData(updatedCalendarData);
+  };
+
+  // Scroll to the selected date
+  const scrollToSelectedDate = () => {
+    const index = calendarData.findIndex((day) =>
+      moment(day.date).isSame(selectedDate, "day")
+    );
+    if (index !== -1 && calendarListRef.current) {
+      calendarListRef.current.scrollToIndex({
+        index,
+        animated: true,
+        viewPosition: 0.5,
+      });
+    }
+  };
+
+  // Fetch user and mood data
   const getUserData = async () => {
     try {
       const res = await firestore()
@@ -126,256 +104,179 @@ export default function HomeScreen({ navigation }) {
     }
   };
 
+  // Fetch data and generate calendar on focus
   useEffect(() => {
     setLoading(true);
     Promise.all([getUserData(), getMoodData()]).then(() => {
       setLoading(false);
     });
-  }, [isFocused]);
+  }, [isFocused, deleted]);
 
-  const generateDateRange = () => {
-    const dates = [];
-    const startDate = moment().subtract(15, "days");
-    const endDate = moment().add(15, "days");
-
-    for (
-      let date = startDate.clone();
-      date.isSameOrBefore(endDate);
-      date.add(1, "day")
-    ) {
-      dates.push({
-        date: date.toDate(),
-        emoji: null,
-      });
+  // Generate calendar whenever moods change
+  useEffect(() => {
+    if (moods.length > 0) {
+      generateCalendar();
     }
-    return dates;
-  };
+  }, [moods]);
 
-  const handleAddMood = () => {
+  // Scroll to selected date whenever calendarData changes
+  useEffect(() => {
+    if (calendarData.length > 0) {
+      scrollToSelectedDate();
+    }
+  }, [calendarData]);
+
+  const handleEdit = (id) => {
     navigation.navigate("QuestionAnswers", {
-      edit: false,
-      docId: "",
+      edit: true,
+      docId: id,
     });
   };
 
+  const handleDelete = async (docId) => {
+    try {
+      Alert.alert("Delete Mood", "Are you sure you want to delete this mood?", [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: async () => {
+            await firestore().collection("moods").doc(docId).delete();
+            setDeleted(true);
+            Alert.alert("Success", "Mood deleted successfully.");
+          },
+        },
+      ]);
+    } catch (error) {
+      console.error("Error deleting mood:", error);
+      Alert.alert("Error", "Failed to delete mood. Please try again.");
+    }
+  };
+
+  const renderItem = ({ item }) => {
+    const isSelected =
+      selectedDate && moment(item.date).isSame(selectedDate, "day");
+    return (
+      <TouchableOpacity
+        style={[
+          styles.dateContainer,
+          isSelected && styles.selectedDateContainer,
+        ]}
+        onPress={() => setSelectedDate(item.date)}
+      >
+        <Text style={[styles.dateText, isSelected && styles.selectedDateText]}>
+          {item.date.format("D")}
+        </Text>
+        {item.emoji && <Text style={styles.emoji}>{item.emoji}</Text>}
+      </TouchableOpacity>
+    );
+  };
+
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <LinearGradient colors={["#F3E8FF", "#FFFFFF"]} style={styles.container}>
-        <StatusBar barStyle="dark-content" />
-
-        {/* Header */}
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.greeting}>Hey, {userName}!</Text>
-            <Text style={styles.subGreeting}>How are you feeling today?</Text>
-          </View>
-        </View>
-
-        {/* Date Selector */}
+    <GradientBackground style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Text style={styles.name}>{"Hey, " + userName + "!"}</Text>
         <FlatList
-          ref={dateListRef}
-          data={generateDateRange()}
+          ref={calendarListRef}
+          data={calendarData}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={renderItem}
           horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.dateList}
-          keyExtractor={(item) => moment(item.date).format("YYYY-MM-DD")}
-          renderItem={({ item }) => (
-            <DateSelector
-              date={item.date}
-              selected={selectedDate}
-              onSelect={setSelectedDate}
-            />
-          )}
+          contentContainerStyle={styles.calendarContainer}
+          onScrollToIndexFailed={(info) => {
+            setTimeout(() => {
+              if (calendarListRef.current) {
+                calendarListRef.current.scrollToIndex({
+                  index: info.index,
+                  animated: true,
+                  viewPosition: 0.5,
+                });
+              }
+            }, 500);
+          }}
         />
-
-        {/* Mood List */}
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={moods.filter((mood) =>
             moment(mood.createdAt?.toDate()).isSame(selectedDate, "day")
           )}
           keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.moodList}
-          renderItem={({ item }) => (
-            <MoodCard
-              {...item}
-              onDelete={() => handleDelete(item.id)}
-              onEdit={() => handleEdit(item.id)}
-            />
-          )}
+          renderItem={({ item }) => {
+            console.log(">>>>>>>", item);
+            return (
+              <MoodCard
+                mood={item.mood}
+                time={item.time}
+                note={item.description}
+                icon={item.emoji}
+                suggestion={item.suggestion}
+                tagline={item.tagline}
+                onDelete={() => handleDelete(item.id)}
+                onEdit={() => handleEdit(item.id)}
+              />
+            );
+          }}
+          contentContainerStyle={styles.listContainer}
         />
-
-        {/* Add Mood Button */}
-        <TouchableOpacity style={styles.addButton} onPress={handleAddMood}>
-          <Text style={styles.addButtonText}>Add Mood</Text>
-        </TouchableOpacity>
-      </LinearGradient>
-    </SafeAreaView>
+      </ScrollView>
+      <View style={{ flex: 1 }} />
+      <View style={{ marginBottom: 10 }}>
+        <ButtonComponent
+          title={"Add Mood"}
+          onPress={() => {
+            navigation.navigate("QuestionAnswers", {
+              edit: false,
+              docId: "",
+            });
+          }}
+        />
+      </View>
+      <MyIndicator visible={loading} />
+    </GradientBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: "#F3E8FF",
-  },
   container: {
     flex: 1,
-    padding: 20,
+    marginHorizontal: 20,
   },
-  header: {
-    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    marginBottom: 20,
+  name: {
+    fontSize: 25,
+    fontWeight: "700",
+    marginTop: 20,
   },
-  greeting: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#1a1a1a",
+  listContainer: {
+    flex: 1,
+    paddingBottom: 20,
   },
-  subGreeting: {
-    fontSize: 16,
-    color: "#666",
-    marginTop: 4,
+  calendarContainer: {
+    marginVertical: 10,
   },
-  dateList: {
-    paddingVertical: 10,
-  },
-  dateButton: {
-    width: 60,
-    height: 80,
-    marginHorizontal: 6,
-    borderRadius: 20,
-    backgroundColor: "#f5f5f5",
-    alignItems: "center",
+  dateContainer: {
+    width: 50,
+    height: 70,
     justifyContent: "center",
-    padding: 8,
+    alignItems: "center",
+    margin: 5,
+    borderRadius: 50,
+    backgroundColor: "#f9f9f9",
   },
-  selectedDateButton: {
-    backgroundColor: "#7C3AED",
+  selectedDateContainer: {
+    backgroundColor: "#6c4ed8",
   },
-  dateWeekday: {
-    fontSize: 12,
-    color: "#666",
-    fontWeight: "600",
-  },
-  dateNumber: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#1a1a1a",
-    marginTop: 4,
+  dateText: {
+    fontSize: 16,
+    color: "#333",
   },
   selectedDateText: {
     color: "#fff",
   },
-  dateEmoji: {
-    fontSize: 16,
-    marginTop: 4,
-  },
-  moodList: {
-    paddingVertical: 10,
-  },
-  moodCard: {
-    backgroundColor: "#fff",
-    borderRadius: 16,
-    padding: CARD_PADDING,
-    marginBottom: CARD_MARGIN,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  moodCardHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 12,
-  },
-  moodInfo: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  emojiLarge: {
-    fontSize: 32,
-    marginRight: 12,
-  },
-  moodTextContainer: {
-    justifyContent: "center",
-  },
-  moodTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#1a1a1a",
-  },
-  moodTime: {
-    fontSize: 14,
-    color: "#666",
-    marginTop: 2,
-  },
-  actionButtons: {
-    flexDirection: "row",
-  },
-  actionButton: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 15,
-    marginLeft: 8,
-  },
-  editButton: {
-    backgroundColor: "#EEF2FF",
-  },
-  deleteButton: {
-    backgroundColor: "#FEE2E2",
-  },
-  actionButtonText: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#4F46E5",
-  },
-  deleteButtonText: {
-    color: "#DC2626",
-  },
-  description: {
-    fontSize: 16,
-    color: "#4B5563",
-    marginBottom: 12,
-  },
-  suggestionContainer: {
-    backgroundColor: "#F9FAFB",
-    padding: 12,
-    borderRadius: 12,
-  },
-  tagline: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#1F2937",
-    marginBottom: 4,
-  },
-  suggestion: {
-    fontSize: 14,
-    color: "#4B5563",
-  },
-  addButton: {
-    backgroundColor: "#7C3AED",
-    borderRadius: 12,
-    padding: 16,
-    alignItems: "center",
-    marginTop: "auto",
-    marginBottom: 20,
-    shadowColor: "#7C3AED",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-    elevation: 8,
-  },
-  addButtonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "600",
+  emoji: {
+    fontSize: 24,
+    marginTop: 5,
   },
 });
